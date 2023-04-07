@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/Divjas-Singh/rock-paper-scissors-game-master/](https://github.com/Divjas-Singh/rock-paper-scissors-game-master/)
+- Live Site URL: [https://divjas-singh.github.io/rock-paper-scissors-game-master/](https://divjas-singh.github.io/rock-paper-scissors-game-master/)
 
 ## My process
 
