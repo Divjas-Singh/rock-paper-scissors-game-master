@@ -1,0 +1,442 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  /* text-align: center; */
+  font-family: "Barlow Semi Condensed", sans-serif;
+  user-select: none;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  display: grid;
+  padding: 4rem 0;
+  justify-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+.mainBar {
+  height: max-content;
+  gap: 30vw;
+  min-width: 52vw;
+  max-width: 95vw;
+  border: 4px solid hsl(217, 16%, 45%);
+  padding: 2rem;
+  align-items: center;
+  border-radius: 1.5rem;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+}
+.mainBar span {
+  display: grid;
+  background-color: white;
+  padding: 1rem 3rem;
+  place-items: center;
+  border-radius: 0.8rem;
+  align-content: center;
+}
+.mainBar span h1 {
+  color: hsl(229, 64%, 46%);
+  font-size: 2rem;
+  font-weight: 600;
+}
+.mainBar span h2 {
+  color: hsl(229, 25%, 31%);
+  font-size: 6rem;
+  font-weight: 700;
+}
+.masterContainer {
+  height: 40rem;
+  width: 45rem;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  align-self: center;
+  /* display: none; */
+}
+.inputItem {
+  scale: 1.1;
+  position: relative;
+  display: grid;
+  height: fit-content;
+  width: fit-content;
+  place-items: center;
+}
+.bgTri {
+  z-index: -2;
+}
+.item {
+  z-index: -1;
+  position: absolute;
+  background-color: white;
+  height: 16rem;
+  width: 16rem;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 50%;
+  transition: all 500ms;
+}
+.inputItem .item:active {
+  transform: scale(0.98);
+}
+.inputItem .item .container {
+  z-index: 2;
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 70%;
+  width: 70%;
+  top: 15%;
+  left: 15%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 150px;
+  background: #ffffff;
+  box-shadow: inset 5px 5px 8px #8f8f8f, inset -5px -5px 8px #ffffff;
+}
+.paper {
+  top: -12%;
+  left: -12%;
+  background: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+.scissors {
+  top: -12%;
+  right: -15%;
+  background: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+.rock {
+  bottom: -7%;
+  left: 25%;
+  background: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.rulesBtn {
+  letter-spacing: 0.15rem;
+  font-weight: 600;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  height: max-content;
+  width: max-content;
+  padding: 0.5rem 3rem;
+  font-size: 2rem;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  border-radius: 0.8rem;
+  transition: all 200ms ease-in-out;
+}
+.rulesBtn:active {
+  scale: 0.98;
+}
+.rulesOverlay {
+  background: radial-Gradient(
+    hsla(215, 51%, 18%, 0.319),
+    hsla(240, 56%, 6%, 0.418)
+  );
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 5rem;
+  left: 0;
+  top: -150vh;
+  transition: top 500ms;
+}
+.rsltDisplay {
+  display: grid;
+  display: none;
+  place-items: center;
+  grid-auto-flow: column;
+  gap: 4rem;
+  font-size: 2rem;
+  align-self: self-start;
+  color: whitesmoke;
+}
+
+.rsltDisplay .item .container svg {
+  scale: 1.5;
+}
+.rsltDisplay .item .container {
+  z-index: 2;
+  padding: 3rem;
+  height: 18rem;
+  width: 18rem;
+  content: "";
+  position: absolute;
+  background-color: white;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: inset 5px 5px 8px #8f8f8f, inset -5px -5px 8px #ffffff;
+}
+.player,
+.comp {
+  padding: 2rem;
+  display: grid;
+  place-items: center;
+  gap: 5rem;
+  width: max-content;
+}
+.rsltDisplay .choice .item {
+  position: static;
+  height: 25rem;
+  width: 25rem;
+}
+.rsltDisplay .paper {
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+.rsltDisplay .scissors {
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+
+.rsltDisplay .rock {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.rulesPage {
+  scale: 1.15;
+  display: grid;
+  gap: 5rem;
+  padding: 2rem 4rem;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  justify-content: center;
+  align-content: start;
+}
+.rulesPage h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: hsl(229, 25%, 31%);
+}
+.closeBtn {
+  display: none;
+  font-size: 4rem;
+  color: rgb(176, 179, 184);
+  height: max-content;
+  width: max-content;
+  justify-self: center;
+  align-self: end;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.closeBtn:active {
+  scale: 0.98;
+}
+.showRule {
+  top: 0;
+}
+.finalRslt {
+  display: grid;
+  display: none;
+  place-items: center;
+  gap: 2rem;
+  width: 0%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.finalRslt h2 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 6rem;
+  color: white;
+}
+.rsltAnimation {
+  overflow: visible;
+  animation: rsltAnimation 500ms linear 1;
+  height: 100%;
+  width: 100%;
+  opacity: 100%;
+}
+@keyframes rsltAnimation {
+  0% {
+    height: 0%;
+    opacity: 0%;
+  }
+  100% {
+    height: 100%;
+    opacity: 100%;
+  }
+}
+.playAgainBtn {
+  letter-spacing: 0.15rem;
+  font-weight: 400;
+  height: max-content;
+  width: max-content;
+  padding: 1rem 6rem;
+  font-size: 2.3rem;
+  background-color: white;
+  border: 2px solid white;
+  color: hsl(237, 49%, 15%);
+  border-radius: 0.8rem;
+  transition: all 200ms ease-in-out;
+}
+
+.playAgainBtn:hover {
+  color: hsl(349, 71%, 52%);
+}
+.playAgainBtn:active {
+  scale: 0.98;
+}
+.winner {
+  box-shadow: -1px 2px 0px 6rem rgba(192, 192, 192, 0.05),
+    -1px 2px 0px 4.5rem rgba(192, 192, 192, 0.15),
+    -1px 2px 0px 3rem rgba(192, 192, 192, 0.25),
+    -1px 2px 0px 1.5rem rgba(192, 192, 192, 0.25);
+}
+@media screen and (max-width: 950px) {
+  .winner {
+    box-shadow: -1px 2px 0px 7rem rgba(192, 192, 192, 0.05),
+      -1px 2px 0px 5.5rem rgba(192, 192, 192, 0.15),
+      -1px 2px 0px 4rem rgba(192, 192, 192, 0.25),
+      -1px 2px 0px 2rem rgba(192, 192, 192, 0.25);
+  }
+  .rsltDisplay {
+    scale: 0.9;
+  }
+}
+@media screen and (max-width: 850px) {
+  .rsltDisplay {
+    justify-content: center;
+    gap: 0rem;
+    scale: 0.85;
+  }
+}
+@media screen and (max-width: 750px) {
+  .rsltDisplay {
+    justify-content: center;
+    gap: 0rem;
+    scale: 0.8;
+  }
+}
+@media screen and (max-width: 650px) {
+  body {
+    gap: 0rem;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+  }
+  .rsltDisplay {
+    gap: 0rem;
+    scale: 0.7;
+  }
+  /* .finalRslt {
+    order: 4;
+    grid-column: span 2;
+  }
+  .player,
+  .comp {
+    scale: 0.7;
+  } */
+}
+@media screen and (max-width: 500px) {
+  body {
+    align-content: start;
+  }
+  .mainBar {
+    gap: 15vw;
+  }
+  .masterContainer {
+    scale: 0.8;
+  }
+  .rulesPage {
+    scale: 1;
+    height: 100vh;
+    width: 100vw;
+    border-radius: 1.5rem;
+    align-content: space-between;
+    padding-bottom: 15rem;
+  }
+  .rulesPage svg {
+    scale: 0.8;
+  }
+  .closeBtn {
+    display: grid;
+  }
+  .rsltDisplay {
+    grid-auto-flow: unset;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    row-gap: 2rem;
+  }
+  .finalRslt {
+    order: 4;
+    grid-column: span 2;
+  }
+  .player h1,
+  .comp h1 {
+    order: 4;
+  }
+}
+@media screen and (max-width: 430px) {
+  html {
+    font-size: 55%;
+  }
+  .mainBar {
+    height: max-content;
+    gap: 15vw;
+    padding: 0rem;
+  }
+  .mainBar svg,
+  .mainBar span {
+    scale: 0.8;
+  }
+  .masterContainer {
+    scale: 0.7;
+  }
+  .rulesBtn {
+    left: 35%;
+    place-self: center;
+  }
+}
+@media screen and (max-width: 350px) {
+  html {
+    font-size: 50%;
+  }
+  body {
+    gap: 0rem;
+    padding: 2rem 0rem;
+  }
+  .mainBar {
+    height: max-content;
+    gap: 15vw;
+    padding: 0rem;
+  }
+  .mainBar svg,
+  .mainBar span {
+    scale: 0.8;
+  }
+  .masterContainer {
+    scale: 0.66;
+  }
+  .rulesBtn {
+    right: none;
+    place-self: center;
+  }
+}
